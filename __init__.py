@@ -7,7 +7,7 @@
 import json
 import requests as rq
 import random
-
+from bs4 import BeautifulSoup
 
 # ---------------------------------------------
 
@@ -85,20 +85,35 @@ headerList = [
     ]
 
 
+
 def fetchJson(url, cookies = {}):
     header = random.sample(headerList, 1)[0]
     headers = {'User-Agent':header} 
     try:
-        content = rq.get(url, headers = headers, cookies = cookies).content.decode('utf-8')
+        raw = rq.get(url, headers = headers, cookies = cookies).content.decode('utf-8')
         try:
-            return json.loads(content)
+            return json.loads(raw)
         except:
-            print('警告：获取的数据不是json！')
-            return []
+            print('警告：获取的数据不是json！返回原始数据！')
+            return raw
     except:
         print('警告：无法连接！')
-        return []
 
+
+
+def fetchPage(url, cookies = {}):
+    header = random.sample(headerList, 1)[0]
+    headers = {'User-Agent':header}
+    try:
+        raw = rq.get(url, headers = headers, cookies = cookies).content
+        try:
+            return BeautifulSoup(raw, 'html.parser')
+        except:
+            print('警告：无法转化为bs4对象！返回原始数据！')
+            return raw
+    except:
+        print('警告：无法连接！')
+ 
 
 
 def saveJson(data, filePath):
@@ -110,14 +125,12 @@ def saveJson(data, filePath):
         print('警告：无法写入' + filePath + '！')
 
 
-
 def readJson(filePath):
     try:
         with open(str(filePath), 'r') as file:
             return json.load(file)
     except:
         print('警告：读取' + filePath + '失败！') 
-
 
 
 def getCookies(filePath):
@@ -127,4 +140,5 @@ def getCookies(filePath):
             name,value=line.strip().split('=', 1)
             cookies[name]=value 
         return cookies
+
 
