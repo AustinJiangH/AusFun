@@ -1,5 +1,9 @@
 # -*- coding:utf-8 -*- 
-
+'''
+* Author: Austin J
+* Data:   2017/07/14
+* All rights reserved!
+'''
 import json
 import requests as rq
 import random
@@ -100,7 +104,7 @@ def fetchJson(url, cookies = {}):
 def saveJson(data, filePath):
     jData = json.dumps(data, indent = 4)
     try:
-        with open(str(filePath),'w') as jFile:
+        with open(str(filePath), 'w') as jFile:
             jFile.write(jData)
     except:
         print('警告：无法写入' + filePath + '！')
@@ -109,7 +113,7 @@ def saveJson(data, filePath):
 
 def readJson(filePath):
     try:
-        with open(str(filePath),'r') as file:
+        with open(str(filePath), 'r') as file:
             return json.load(file)
     except:
         print('警告：读取' + filePath + '失败！') 
@@ -117,10 +121,10 @@ def readJson(filePath):
 
 
 def getCookies(filePath):
-    with open(filePath,'r') as f:
+    with open(filePath, 'r') as f:
         cookies={}
         for line in f.read().split(';'):
-            name,value=line.strip().split('=',1)  #1代表只分割一次
+            name,value=line.strip().split('=', 1)
             cookies[name]=value 
         return cookies
 
