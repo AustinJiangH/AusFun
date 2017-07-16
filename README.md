@@ -15,9 +15,7 @@
         <td>返回值</td>
     </tr>
     <tr>
-        <td></td>
-        <td style="text-align: center;">V 0.0.0</td>
-        <td></td>
+        <td colspan="4" style="text-align: center;">V 0.0.0</td>
     </tr>
     <tr>
         <td>获取json数据</td>
@@ -50,8 +48,8 @@
         <td>cookies</td>
     </tr>
 </table>
-
-<small>2017/07/14</small>
+<br>
+<small>Last Modified: 2017/07/16</small>
 
 
 
