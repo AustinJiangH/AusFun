@@ -15,7 +15,9 @@
     </tr>
 
     <tr>
-        <td colspan="3" style="text-align: center;">V 0.0.0</td>
+        <td></td>
+        <td style="text-align: center;">V 0.0.0</td>
+        <td></td>
     </tr>
     <tr>
         <td>获取json数据</td>
