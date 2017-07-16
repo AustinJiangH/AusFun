@@ -100,8 +100,21 @@ def fetchJson(url, cookies = {}):
         print('警告：无法连接！')
 
 
+def postJson(url, data, cookies = {}):
+    header = random.sample(headerList, 1)[0]
+    headers = {'User-Agent':header}
+    try: 
+        raw = rq.post(url, cookies = cookies, headers = headers, data = data).content.decode('utf-8')
+        try:
+            return json.loads(raw)
+        except:
+            print('警告：获取的数据不是json！返回原始数据！')
+            return raw
+    except:
+        print('警告：无法连接！')
 
-def fetchPage(url, cookies = {}):
+
+def getPage(url, cookies = {}):
     header = random.sample(headerList, 1)[0]
     headers = {'User-Agent':header}
     try:

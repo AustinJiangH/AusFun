@@ -12,6 +12,7 @@
         <td>功能</td>
         <td>方法</td>
         <td>参数</td>
+        <td>返回值</td>
     </tr>
     <tr>
         <td></td>
@@ -20,23 +21,33 @@
     </tr>
     <tr>
         <td>获取json数据</td>
-        <td>fetchJson()</td>
+        <td>getJson()</td>
         <td>url, cookies = {}</td>
+        <td>dict/list</td>
+    </tr>
+    <tr>
+        <td>获取json数据</td>
+        <td>postJson()</td>
+        <td>url, data, cookies = {}</td>
+        <td>dict/list</td>
     </tr>
     <tr>
         <td>存储json数据</td>
         <td>saveJson()</td>
         <td>data, filePath</td>
+        <td>file</td>
     </tr>
     <tr>
         <td>读取json数据</td>
         <td>readJson()</td>
         <td>filePath</td>
+        <td>dict/list</td>
     </tr>
     <tr>
         <td>读取cookies文件</td>
         <td>getCookies()</td>
         <td>filePath</td>
+        <td>cookies</td>
     </tr>
 </table>
 
